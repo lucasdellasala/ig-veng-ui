@@ -1,111 +1,120 @@
-#root {
-  width: 100%;
-}
-
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1e1e1e; /* Fondo oscuro */
-  color: #fff; /* Texto blanco */
+  background-color: #1e1e1e;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
-  margin: 20px;
-  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 h1 {
-  color: #61dafb; /* Azul claro */
+  font-size: 24px;
+}
+
+.input {
+  margin-bottom: 20px;
 }
 
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  justify-content: center;
-  max-width: 1200px; /* Ajusta el ancho máximo de la grilla según sea necesario */
-  margin: 0 auto; /* Centrar la grilla */
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #444; /* Borde oscuro */
+  background-color: #333;
   border-radius: 8px;
-  padding: 16px;
-  background-color: #333; /* Fondo oscuro */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .profile-pic-container {
-  margin-bottom: 10px;
+  width: 100%;
+  padding-top: 75%;
+  position: relative;
+  overflow: hidden;
 }
 
 .profile-pic {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .user-info {
-  max-width: 200px; /* Ajusta el ancho según tus necesidades */
+  padding: 10px;
 }
 
 h2 {
+  font-size: 16px;
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
-  color: #fff; /* Texto blanco */
 }
 
 .verification-icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   margin-left: 5px;
+}
+
+p {
+  font-size: 12px;
+  margin: 0;
 }
 
 .pagination {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
 }
 
 .pagination-button {
-  margin: 0 5px;
-  padding: 8px 12px;
-  border: 1px solid #444;
-  border-radius: 4px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pagination-button:hover {
+  background-color: #45a049;
 }
 
 .page-info {
-  margin: 0 10px;
+  font-size: 16px;
 }
 
-.input {
-  margin: 0 0 20px 0;
-}
-
-/* Estilos para dispositivos móviles */
-@media screen and (max-width: 768px) {
+@media (min-width: 601px) {
   .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  .card {
-    max-width: 150px;
-  }
-
-  .pagination {
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
