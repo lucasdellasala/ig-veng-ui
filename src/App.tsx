@@ -1,6 +1,7 @@
 // Importa las librerías necesarias
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import './App.css';
+import verificationIcon from './assets/verified.png'
 
 // Interfaces de usuario y componentes relacionados
 interface User {
@@ -38,7 +39,6 @@ interface CardProps {
 
 // URLs para imágenes por defecto
 const defaultProfilePic = 'https://cdn4.iconfinder.com/data/icons/instagram-ui-twotone/48/Paul-18-512.png';
-const verificationIcon = 'https://www.pngitem.com/pimgs/m/302-3024199_instagram-verified-symbol-png-instagram-verified-logo-png.png';
 
 // Componente de tarjeta de usuario
 const Card: React.FC<CardProps> = ({ user }) => {
