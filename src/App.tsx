@@ -89,6 +89,7 @@ const App: React.FC = () => {
   const [usersData, setUsersData] = useState<User[]>([]);
   const [fileLoaded, setFileLoaded] = useState(false);
   const [showVerified, setShowVerified] = useState(true);
+  const [totalUsers, setTotalUsers] = useState<number>(0);
 
   // Efecto para cargar datos almacenados localmente
   useEffect(() => {
@@ -98,6 +99,7 @@ const App: React.FC = () => {
         const parsedData = JSON.parse(storedData);
         setUsersData(parsedData);
         setFileLoaded(true);
+        setTotalUsers(parsedData.length)
       } catch (error) {
         console.error('Error parsing stored JSON:', error);
       }
@@ -116,6 +118,7 @@ const App: React.FC = () => {
           localStorage.setItem('usersData', JSON.stringify(parsedData));
           setCurrentPage(1);
           setFileLoaded(true);
+          setTotalUsers(parsedData.length)
         } catch (error) {
           console.error('Error parsing JSON:', error);
         }
@@ -149,6 +152,8 @@ const App: React.FC = () => {
   const handleToggleVerified = () => {
     setShowVerified(!showVerified);
     setCurrentPage(1); // Reiniciar la página al cambiar la opción de mostrar verificados
+    const users =  !showVerified ? usersData.length : usersData.filter((user) => !user.is_verified).length;
+    setTotalUsers(users)
   };
 
   return (
@@ -182,7 +187,7 @@ const App: React.FC = () => {
                     Anterior
                   </button>
                 )}
-                <span className="page-info">{`Página ${currentPage} de ${totalPages}`}</span>
+                <span className="page-info">{`Página ${currentPage} de ${totalPages} (${totalUsers} usuarios)`}</span>
                 {currentPage < totalPages && (
                   <button
                     className="pagination-button"
