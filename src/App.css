@@ -118,3 +118,20 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.toggle-verified {
+  background-color: #fff; /* Fondo blanco o gris claro */
+  border: 1px solid #ccc; /* Borde gris claro */
+  color: #333; /* Texto oscuro */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cursor de puntero */
+  outline: none; /* Eliminar contorno al hacer clic */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  margin: 0 0 15px 0;
+}
+
+.toggle-verified.active {
+  background-color: #4caf50; /* Fondo verde cuando está activado */
+  color: #fff; /* Texto blanco cuando está activado */
+}
